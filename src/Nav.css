@@ -1,0 +1,20 @@
+.navigation ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  color: #153a2b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+  color: #d0a900;
+
+}

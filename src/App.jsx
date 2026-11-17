@@ -1,12 +1,15 @@
 /*import { useState } from "react";*/
 import "./App.css";
-
+import Header from "./Header";
+import Main from "./Mainn";
 function App() {
   /*const [count, setCount] = useState(0);*/
 
   return (
     <>
-      <h1>hello</h1>
+      <Header />
+      <Main />
+      <footer></footer>
     </>
   );
 }
