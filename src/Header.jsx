@@ -1,13 +1,35 @@
+import { useState } from "react";
+import "./Header.css";
 import Nav from "./Nav";
+import logo from "./assets/icons_assets/Logo.svg";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header style={{ backgroundColor: "#f9fcfa", color: "#fff", padding: "0 8%" , display: "flex", justifyContent: "space-between", alignItems: "center", height: "80px"}}>
-      <img src="src/assets/icons_assets/Logo .svg" alt="Little Lemon Logo" />
-        <Nav />
-        <button style={{ backgroundColor: "#d0d02a", color: "#fff", border: "none", padding: "0.5rem 1rem", borderRadius: "4px" }}>
-          reserve a table
-        </button>
+    <header className="header">
+      <a className="header-brand" href="#home" aria-label="Little Lemon home">
+        <img className="logo" src={logo} alt="Little Lemon" />
+      </a>
+      <Nav
+        isOpen={isMenuOpen}
+        onNavigate={() => setIsMenuOpen(false)}
+      />
+      <button className="header-button" type="button">
+        Reserve a table
+      </button>
+      <button
+        className="menu-toggle"
+        type="button"
+        aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={isMenuOpen}
+        aria-controls="primary-navigation"
+        onClick={() => setIsMenuOpen((open) => !open)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
     </header>
   );
 }

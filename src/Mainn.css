@@ -1,84 +1,106 @@
 .hero {
   position: relative;
-  width: 100%;
-  min-height: 450px;
+  isolation: isolate;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 60px 8%;
-  box-sizing: border-box;
+  width: 100%;
+  min-height: min(620px, calc(100svh - 80px));
+  padding: clamp(48px, 8vw, 100px) clamp(20px, 8vw, 120px);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .hero-image {
   position: absolute;
+  z-index: -2;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  object-position: center;
 }
 
 .hero::before {
-  content: "";
   position: absolute;
+  z-index: -1;
   inset: 0;
-  background: rgba(17, 33, 19, 0.6);
-  z-index: 1;
+  background: linear-gradient(90deg, rgb(17 33 19 / 78%), rgb(17 33 19 / 20%));
+  content: "";
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-
-  justify-content: flex-start;
   align-items: flex-start;
-  position: relative;
-  z-index: 2;
-  max-width: 500px;
-  color: white;
-  gap: 40px;
+  width: min(100%, 560px);
+  gap: clamp(16px, 2.5vw, 28px);
+  color: #fff;
+  text-align: left;
 }
 
 .hero-content h1 {
-  /* font-size: clamp(32px, 4vw, 58px); */
-  font-family:'Times New Roman', Times, serif;
-  line-height: 1.2;
   margin: 0;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 .hero-content h6 {
-color: #f4cd0f;
-  font-family:'Times New Roman', Times, serif;
-  padding: 0;
   margin: 0;
-
+  color: #f4cd0f;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  letter-spacing: 0.08em;
 }
 
 .hero-content p {
-    font-family:'Times New Roman', Times, serif;
-    font-weight: 400;
-  font-size: clamp(14px, 1.5vw, 18px);
-  line-height: 1.7;
-}
-
-@media (max-width: 600px) {
-  .hero {
-    min-height: 350px;
-    padding: 30px 5%;
-  }
+  max-width: 48ch;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.65;
 }
 
 .hero-button {
   display: inline-block;
-  padding: 17px 30px;
+  min-height: 48px;
+  padding: 13px 24px;
+  border: 0;
+  border-radius: 5px;
   background-color: #f4cd0f;
   color: #333;
+  font: inherit;
+  font-weight: 700;
   text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  z-index: 2;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #ffdc35;
+}
+
+.hero-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 520px;
+    min-height: min(620px, calc(100svh - 68px));
+    padding: 48px 24px;
+  }
+
+  .hero::before {
+    background: rgb(17 33 19 / 68%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-button {
+    transition: none;
+  }
 }

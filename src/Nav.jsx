@@ -1,13 +1,31 @@
+
+import { Link } from "react-router-dom";
 import "./Nav.css";
-export default function Nav() {
-    return (
-        <nav className="navigation">
-            <ul >
-                <li><a href="#" >Home</a></li>
-                <li><a href="#" >About</a></li>
-                <li><a href="#" >Menu</a></li>
-                <li><a href="#" >Reservations</a></li>
-                <li><a href="#" >Order Online</a></li>
-            </ul>
-        </nav>
-        );}
+
+const links = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Menu", path: "/menu" },
+  { name: "Reservations", path: "/booking" },
+  { name: "Testimonials", path: "/testimonials" },
+];
+
+export default function Nav({ isOpen, onNavigate }) {
+  return (
+    <nav
+      className={`navigation${isOpen ? " navigation-open" : ""}`}
+      id="primary-navigation"
+      aria-label="Main navigation"
+    >
+      <ul>
+        {links.map((link) => (
+          <li key={link.path}>
+            <Link to={link.path} onClick={onNavigate}>
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}

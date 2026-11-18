@@ -1,0 +1,100 @@
+.about-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 7vw, 88px);
+  padding: clamp(56px, 9vw, 112px) clamp(20px, 8vw, 120px);
+  background-color: #faf7ed;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 580px;
+}
+
+.about-eyebrow {
+  margin: 0;
+  color: #78843c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-content h2 {
+  margin: 0;
+  color: #153a2b;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.about-content > p:not(.about-eyebrow) {
+  max-width: 58ch;
+  color: #4a514c;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.about-button {
+  min-height: 48px;
+  margin-top: 4px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f4cd0f;
+  color: #153a2b;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.about-button:hover {
+  background-color: #e5bc00;
+}
+
+.about-button:focus-visible {
+  outline: 3px solid #495e57;
+  outline-offset: 3px;
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  min-height: 280px;
+  max-height: 440px;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding: 56px 24px;
+  }
+
+  .about-content {
+    gap: 16px;
+  }
+
+  .about-image {
+    min-height: 0;
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-button {
+    transition: none;
+  }
+}

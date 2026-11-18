@@ -1,0 +1,114 @@
+.testimonials-section {
+  padding: clamp(56px, 9vw, 112px) clamp(20px, 8vw, 120px);
+  background-color: #fcfadb;
+}
+
+.testimonials-heading {
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.testimonials-eyebrow {
+  margin: 0 0 8px;
+  color: #78843c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.testimonials-heading h2 {
+  margin: 0;
+  color: #153a2b;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 230px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid #eeebcd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 24px rgb(21 58 43 / 6%);
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+  color: #d0a900;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.testimonial-star {
+  color: #d9d9d2;
+}
+
+.testimonial-star-full {
+  color: #d0a900;
+}
+
+.testimonial-star-half {
+  background: linear-gradient(90deg, #d0a900 50%, #d9d9d2 50%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonial-comment {
+  flex: 1;
+  margin: 0 0 24px;
+  color: #4a514c;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  width: 100%;
+  padding-top: 16px;
+  border-top: 1px solid #eeebcd;
+  color: #153a2b;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@media (max-width: 850px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .testimonials-section {
+    padding: 56px 24px;
+  }
+
+  .testimonials-heading {
+    margin-bottom: 28px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .testimonial-card {
+    min-height: 0;
+  }
+}

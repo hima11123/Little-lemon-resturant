@@ -1,11 +1,13 @@
 import "./Mainn.css";
+import restaurantImage from "./assets/icons_assets/restaurant.jpg";
 
 export default function Main() {
   return (
-    <main className="hero">
+    <main className="hero" id="home">
       <img
-        src="src/assets/icons_assets/restaurant.jpg"
-        alt="Little Lemon Logo"
+        src={restaurantImage}
+        alt=""
+        aria-hidden="true"
         className="hero-image"
       />
       <div className="hero-content">
