@@ -24,7 +24,11 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="testimonials-section" aria-labelledby="testimonials-title">
+    <section
+      className="testimonials-section"
+      id="testimonials"
+      aria-labelledby="testimonials-title"
+    >
       <div className="testimonials-heading">
         <p className="testimonials-eyebrow">Kind words from our guests</p>
         <h2 id="testimonials-title">Testimonials</h2>

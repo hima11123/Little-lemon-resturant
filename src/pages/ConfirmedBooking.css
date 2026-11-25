@@ -1,0 +1,123 @@
+.confirmed-booking {
+  display: grid;
+  min-height: calc(100svh - 160px);
+  place-items: center;
+  padding: clamp(40px, 8vw, 96px) 20px;
+  background-color: #faf7ed;
+}
+
+.confirmation-card {
+  width: min(100%, 640px);
+  padding: clamp(28px, 6vw, 56px);
+  border: 1px solid #eeebcd;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 0 12px 32px rgb(21 58 43 / 8%);
+  text-align: center;
+}
+
+.confirmation-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #e7eddf;
+  color: #495e35;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.confirmation-eyebrow {
+  margin: 0 0 10px;
+  color: #78843c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.confirmation-card h1 {
+  margin: 0;
+  color: #153a2b;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.confirmation-message {
+  margin: 16px 0 0;
+  color: #4a514c;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.confirmation-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 32px 0 0;
+  padding: 24px 0;
+  border-top: 1px solid #eeebcd;
+  border-bottom: 1px solid #eeebcd;
+  text-align: left;
+}
+
+.confirmation-details div {
+  min-width: 0;
+}
+
+.confirmation-details dt {
+  margin-bottom: 4px;
+  color: #78843c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.confirmation-details dd {
+  margin: 0;
+  color: #153a2b;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.confirmation-home-link {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 12px 22px;
+  border-radius: 5px;
+  background-color: #f4cd0f;
+  color: #153a2b;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.confirmation-home-link:hover {
+  background-color: #e5bc00;
+}
+
+.confirmation-home-link:focus-visible {
+  outline: 3px solid #495e57;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .confirmation-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirmation-home-link {
+    transition: none;
+  }
+}

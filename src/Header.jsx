@@ -15,7 +15,7 @@ export default function Header() {
         isOpen={isMenuOpen}
         onNavigate={() => setIsMenuOpen(false)}
       />
-      <button className="header-button" type="button">
+      <button className="header-button" type="button" onClick={() => window.location.href = "/booking"}>
         Reserve a table
       </button>
       <button

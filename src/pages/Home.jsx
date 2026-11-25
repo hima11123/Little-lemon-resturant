@@ -4,7 +4,7 @@ import About from "../About";
 import Main from "../Mainn";
 export default function Home() {
   return (
-    <div>
+    <div id="home">
       <Main />
       <About />
       <Highlites />

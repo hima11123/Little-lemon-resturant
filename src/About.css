@@ -3,7 +3,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: clamp(32px, 7vw, 88px);
-  padding: clamp(56px, 9vw, 112px) clamp(20px, 8vw, 120px);
+  padding: clamp(56px, 3vw, 112px) clamp(20px, 3vw, 120px);
   background-color: #faf7ed;
 }
 

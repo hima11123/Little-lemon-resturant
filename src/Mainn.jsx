@@ -17,7 +17,7 @@ export default function Main() {
           At Little Lemon, every dish is made to bring people together. Seasonal
           ingredients, bright flavors, and a table waiting for you.
         </p>
-        <button className="hero-button">
+        <button className="hero-button" onClick={() => window.location.href = "/booking"}>
           reserve a table
         </button>
       </div>

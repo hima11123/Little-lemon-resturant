@@ -1,0 +1,196 @@
+.reserve-page {
+  min-height: calc(100svh - 80px);
+  padding: clamp(48px, 8vw, 100px) clamp(20px, 8vw, 120px);
+  background-color: #faf7ed;
+}
+
+.reserve-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(32px, 7vw, 88px);
+  width: min(100%, 1120px);
+  margin: 0 auto;
+}
+
+.reserve-intro {
+  position: sticky;
+  top: 32px;
+  padding-top: 20px;
+}
+
+.reserve-eyebrow {
+  margin: 0 0 12px;
+  color: #78843c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reserve-intro h1 {
+  margin: 0 0 20px;
+  color: #153a2b;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.reserve-intro > p:last-child {
+  max-width: 42ch;
+  color: #4a514c;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.reserve-form {
+  width: 100%;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid #eeebcd;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 12px 32px rgb(21 58 43 / 8%);
+}
+
+.form-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-legend {
+  margin-bottom: 24px;
+  color: #153a2b;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-group label {
+  color: #153a2b;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 12px;
+  border: 1px solid #cbd4ce;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #263b30;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-group input::placeholder {
+  color: #818982;
+  opacity: 1;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #78843c;
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible {
+  border-color: #495e57;
+  outline: 3px solid rgb(73 94 87 / 20%);
+  outline-offset: 1px;
+}
+
+.reserve-button {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 28px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f4cd0f;
+  color: #153a2b;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reserve-button:hover {
+  background-color: #e5bc00;
+}
+
+.reserve-button:focus-visible {
+  outline: 3px solid #495e57;
+  outline-offset: 3px;
+}
+.reserve-button:disabled {
+  background-color: #e3e9e4;
+  color: #78843c;
+  cursor: not-allowed;
+}
+
+.reserve-status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  color: #153a2b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .reserve-page {
+    min-height: 0;
+    padding: 56px 24px;
+  }
+
+  .reserve-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .reserve-intro {
+    position: static;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .reserve-page {
+    padding: 40px 18px;
+  }
+
+  .reserve-form {
+    padding: 24px 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reserve-button {
+    transition: none;
+  }
+}
