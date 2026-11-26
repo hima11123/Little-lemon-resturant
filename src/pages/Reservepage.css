@@ -143,11 +143,12 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .reserve-button:hover {
-  background-color: #e5bc00;
+  background-color: #495e57;
+  color: #fff;
 }
 
 .reserve-button:focus-visible {

@@ -75,11 +75,12 @@
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .hero-button:hover {
-  background-color: #ffdc35;
+  background-color: #495e57;
+  color: #fff;
 }
 
 .hero-button:focus-visible {

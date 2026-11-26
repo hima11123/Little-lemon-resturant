@@ -1,17 +1,37 @@
 .dish-card {
+  position: relative;
   background-color: #faf7ed;
   border-radius: 16px;
   overflow: hidden;
   padding: 11px;
+  border: 1px solid transparent;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.dish-card:hover,
+.dish-card:focus-within {
+  z-index: 1;
+  transform: translateY(-6px) scale(1.02);
+  border-color: #e4d98d;
+  box-shadow: 0 16px 32px rgb(0 0 0 / 18%);
 }
 
 .dish-image {
   width: 100%;
-  height: 220px;
+  height: clamp(180px, 22vw, 260px);
   object-fit: cover;
   border-radius: 14px;
   display: block;
   object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.dish-card:hover .dish-image,
+.dish-card:focus-within .dish-image {
+  transform: scale(1.04);
 }
 
 .dish-content {
@@ -53,4 +73,35 @@
   font-size: 11px;
   font-weight: bold;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.order-button:hover {
+  background-color: #f4cd0f;
+  color: #153a2b;
+  transform: translateY(-2px);
+}
+
+.order-button:focus-visible {
+  outline: 3px solid #f4cd0f;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dish-card,
+  .dish-image,
+  .order-button {
+    transition: none;
+  }
+
+  .dish-card:hover,
+  .dish-card:focus-within,
+  .dish-card:hover .dish-image,
+  .dish-card:focus-within .dish-image,
+  .order-button:hover {
+    transform: none;
+  }
 }

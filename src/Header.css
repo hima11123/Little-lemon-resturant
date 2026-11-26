@@ -36,10 +36,12 @@
   font-weight: 700;
   white-space: nowrap;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .header-button:hover {
-  background-color: #e0bd27;
+  background-color: #495e57;
+  color: #ffffff;
 }
 
 .menu-toggle {
