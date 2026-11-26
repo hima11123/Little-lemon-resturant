@@ -8,7 +8,7 @@ import AboutPage from "./pages/About";
 import ReservePage from "./pages/ReservePage";
 import ConfirmedBooking from "./pages/ConfirmedBooking";
 import Footer from "./Footer";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./Scrolltotop";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function ScrollToHash() {
