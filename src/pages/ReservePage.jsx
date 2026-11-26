@@ -9,8 +9,49 @@ import {
 } from "./reservationApi";
 import { useNavigate } from "react-router-dom";
 
+function validateFormData(formData, availableTimes) {
+  const errors = {};
+
+  // Name validation
+  if (formData.name.trim().length < 2  || formData.name.trim().length > 40) {
+    errors.name = "Name must contain at least 2 characters.";
+  }
+
+  // Phone validation
+  const phonePattern = /^[0-9+() -]{7,20}$/;
+
+  if (!phonePattern.test(formData.phone.trim())) {
+    errors.phone = "Enter a valid phone number.";
+  }
+
+  // Date validation
+  const today = new Date();
+  const minDate = `${today.getFullYear()}-${String(
+    today.getMonth() + 1,
+  ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
+  if (!formData.date || formData.date < minDate) {
+    errors.date = "Please select a valid date.";
+  }
+
+  // Time validation
+  if (!availableTimes.includes(formData.time)) {
+    errors.time = "Please select an available time.";
+  }
+
+  // Guests validation
+  const guests = Number(formData.guests);
+
+  if (!Number.isInteger(guests) || guests < 1 || guests > 10) {
+    errors.guests = "Guests must be a whole number between 1 and 10.";
+  }
+
+  return errors;
+}
+
 export default function ReservePage() {
   const navigate = useNavigate();
+  const [touched, setTouched] = useState({});
 
   //const [BookedTimes, setBookedTimes] = useState([]);
   const [availableTimes, dispatch] = useReducer(
@@ -18,6 +59,7 @@ export default function ReservePage() {
     null,
     initializeTimes,
   );
+  const [errors, setErrors] = useState({});
 
   const [formData, setFormData] = useState({
     name: "",
@@ -32,17 +74,33 @@ export default function ReservePage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setFormData((prevState) => ({
-      ...prevState,
+    const updatedFormData = {
+      ...formData,
       [name]: value,
       ...(name === "date" ? { time: "" } : {}),
+    };
+
+    setFormData(updatedFormData);
+    setTouched((prevTouched) => ({
+      ...prevTouched,
+      [name]: true,
     }));
+    setErrors(validateFormData(updatedFormData, availableTimes));
+  };
+  const handleValidation = () => {
+    const ValidationErrors = validateFormData(formData, availableTimes);
+    setErrors(ValidationErrors);
+    return Object.keys(ValidationErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmissionMessage("");
+    const isValid = handleValidation();
+
+    if (!isValid) {
+      return;
+    }
 
     const submitted = getReservationApi("submitAPI")({
       ...formData,
@@ -63,9 +121,12 @@ export default function ReservePage() {
     //setBookedTimes((prevBookedTimes) => [...prevBookedTimes, formData.time]);
   };
 
- /* setAvailableTimes((prevAvailableTimes) =>
+  /* setAvailableTimes((prevAvailableTimes) =>
     prevAvailableTimes.filter((time) => time.value !== formData.time),
   );*/
+  const currentErrors = validateFormData(formData, availableTimes);
+
+  const isFormValid = Object.keys(currentErrors).length === 0;
 
   return (
     <main className="reserve-page">
@@ -88,6 +149,9 @@ export default function ReservePage() {
           availableTimes={availableTimes}
           dispatch={dispatch}
           submissionMessage={submissionMessage}
+          isFormValid={isFormValid}
+          errors={errors}
+          touched={touched}
         />
       </section>
     </main>

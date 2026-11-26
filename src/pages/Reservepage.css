@@ -119,6 +119,17 @@
   outline-offset: 1px;
 }
 
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"] {
+  border-color: #b42318;
+}
+
+.field-error {
+  color: #b42318;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
 .reserve-button {
   width: 100%;
   min-height: 50px;
